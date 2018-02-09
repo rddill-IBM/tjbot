@@ -19,6 +19,7 @@ var config = require('./config');
 
 // obtain our credentials from config.js
 var credentials = config.credentials;
+var name = config.tj.name;
 
 // obtain user-specific config
 var WORKSPACEID = config.conversationWorkspaceId;
@@ -36,17 +37,16 @@ var tjConfig = {
 // instantiate our TJBot!
 var tj = new TJBot(hardware, tjConfig, credentials);
 
-console.log("You can ask me to introduce myself or tell you a joke.");
-console.log("Try saying, \"" + tj.configuration.robot.name + ", please introduce yourself\" or \"" + tj.configuration.robot.name + ", who are you?\"");
-console.log("You can also say, \"" + tj.configuration.robot.name + ", tell me a joke!\"");
+console.log("You can ask me anything you want about my career and background.");
+console.log("Try saying, \"" + config.tj.name + ", tell me about yourself\" or \"" + config.tj.name + ", tell me about your skills?\"");
 
 // listen for utterances with our attentionWord and send the result to
 // the Conversation service
 tj.listen(function(msg) {
     // check to see if they are talking to TJBot
-    if (msg.startsWith(tj.configuration.robot.name)) {
+    if (msg.startsWith(config.tj.name)) {
         // remove our name from the message
-        var turn = msg.toLowerCase().replace(tj.configuration.robot.name.toLowerCase(), "");
+        var turn = msg.toLowerCase().replace(config.tj.name.toLowerCase(), "");
 
         // send to the conversation service
         tj.converse(WORKSPACEID, turn, function(response) {
