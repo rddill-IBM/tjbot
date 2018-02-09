@@ -25,7 +25,7 @@ var name = config.tj.name;
 var WORKSPACEID = config.conversationWorkspaceId;
 
 // these are the hardware capabilities that TJ needs for this recipe
-var hardware = ['microphone', 'speaker'];
+var hardware = ['microphone', 'speaker', 'servo', 'led'];
 
 // set up TJBot's configuration
 var tjConfig = {
