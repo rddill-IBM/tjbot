@@ -24,7 +24,7 @@ const TJBot = require('tjbot');
 // actually need real Watson credentials for this test
 const dummyWatsonCredentials = {
     visual_recognition: {
-        api_key: 'abc-def-ghi'
+        api_key: 'a1107d9d670354018cf2d899ba8740c4855f466a'
     }
 };
 
@@ -33,8 +33,8 @@ tj.takePhoto('picture.jpg').then(function(data) {
     if (!fs.existsSync('picture.jpg')) {
         throw new Error("expected picture.jpg to have been created");
     }
-    console.log("picture taken successfully, removing the file");
-    if (fs.existsSync('picture.jpg')) {
-        fs.unlink('picture.jpg');
-    }
+//    console.log("picture taken successfully, removing the file");
+//    if (fs.existsSync('picture.jpg')) {
+//        fs.unlink('picture.jpg');
+//    }
 });

@@ -20,8 +20,12 @@ const rl = require('readline-sync');
 
 const TJBot = require('tjbot');
 
+const sleep = require('sleep');
+
 var tj = new TJBot(['servo'], {log: {level: 'debug'}}, {});
 
+for (var i=500; i<=2400; i+=10)
+	{ (function (_idx) {tj._motor.servoWrite(_idx); sleep.msleep(10);})(i); }
 tj.armBack();
 var answer = rl.question('Is TJBot\'s arm in the BACKWARD position? Y/N > ');
 if (answer.toLowerCase() != 'y') {
