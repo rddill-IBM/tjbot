@@ -6,7 +6,7 @@ User-specific configuration
     * Hint: Your password is the smaller value ~ 12 characters
 */ 
 
-
+config = require ('../../../env.json');
 exports.sentiment_keyword = "education";       // keyword to monitor in Twitter
 exports.sentiment_analysis_frequency_sec = 30; // analyze sentiment every N seconds
 
@@ -15,15 +15,7 @@ exports.credentials = {};
 
 // Watson Tone Analyzer
 // https://www.ibm.com/watson/developercloud/tone-analyzer.html
-exports.credentials.tone_analyzer = {
-    password: '',
-    username: ''
-};
+exports.credentials.tone_analyzer = config.tone_analyzer;
 
 // Twitter
-exports.credentials.twitter = {
-    consumer_key: '',
-    consumer_secret: '',
-    access_token_key: '',
-    access_token_secret: ''
-};
+exports.credentials.twitter = config.twitter;
